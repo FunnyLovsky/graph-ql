@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+# GitHub Repository Search SPA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Это простое веб-приложение для поиска репозиториев на GitHub с использованием GraphQL API.
 
-## Available Scripts
+## Описание
 
-In the project directory, you can run:
+Приложение представляет собой одностраничное приложение (SPA), написанное на React, которое позволяет пользователю искать репозитории на GitHub по ключевому слову. Результаты поиска отображаются в виде списка с пагинацией.
 
-### `npm start`
+## Функциональность
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Пользователь может ввести ключевое слово для поиска репозиториев.
+- При нажатии на кнопку "Search" происходит отправка запроса на сервер GitHub с использованием GraphQL API для получения списка репозиториев, соответствующих запросу.
+- Репозитории отображаются списком на экране с пагинацией. При достижении конца списка происходит автоматическая подгрузка следующих результатов.
+- При клике на название репозитория открывается страница с информацией о нем на сайте GitHub.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Технологии
 
-### `npm test`
+- React: для создания пользовательского интерфейса и компонентов.
+- Apollo Client: для взаимодействия с GraphQL API GitHub.
+- TypeScript: для статической типизации кода.
+- CSS: для стилизации пользовательского интерфейса.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Запуск проекта
 
-### `npm run build`
+1. Установите зависимости, выполнив команду:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Запустите проект, выполнив команду:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm run start
+```
 
-### `npm run eject`
+Это запустит приложение в режиме разработки. Вы сможете открыть его в браузере по адресу [http://localhost:3000](http://localhost:3000).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Настройка токена доступа к API GitHub
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Для работы с GitHub GraphQL API необходим персональный токен доступа. Получить его можно, следуя [этим инструкциям](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Полученный токен следует добавить в код приложения в файл `./src/api/token.ts`, заменив `YOUR_GITHUB_PERSONAL_ACCESS_TOKEN`.
